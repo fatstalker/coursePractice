@@ -26,8 +26,8 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
     let playerSelection = prompt("Enter your selection", defaultPromptValue);
 
     //debug and control logs
-    console.log("opponent choice: " + computerSelection); //to be removed
-    console.log("your choice: " + playerSelection);       //to be removed
+    alert("opponent choice: " + computerSelection); //to be removed
+    alert("your choice: " + playerSelection);       //to be removed
     
     //start conditional statements
     //if computerSelection == "Rock"
@@ -35,15 +35,15 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
 
         //if playerSelection == "Rock" THEN tie
         if (playerSelection == "Rock") {
-            console.log("It's a tie! C'mon, try again!");
+            alert("It's a tie! C'mon, try again!");
         }
         //if playerSelection == "paper" THEN win
         if (playerSelection == "Paper") {
-            console.log("You won! Lucky you!");
+            alert("You won! Lucky you!");
         }
         //if playerSelection == "Scissors" THEN lose
         if (playerSelection == "Scissors") {
-            console.log("You lost. Better luck next time :'(");
+            alert("You lost. Better luck next time :'(");
         }
     }    
     //if computerSelection == "Paper"
@@ -51,15 +51,15 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
 
         //if playerSelection == "Rock"
         if (playerSelection =="Rock") {
-            console.log("You lost. Better luck next time :'(");
+            alert("You lost. Better luck next time :'(");
         }
         //if playerSelection == "paper"
         if (playerSelection == "Paper") {
-            console.log("It's a tie! C'mon, try again!");
+            alert("It's a tie! C'mon, try again!");
         }
         //if playerSelection == "Scissors"
         if (playerSelection == "Scissors") {
-            console.log("You won! Lucky you!");
+            alert("You won! Lucky you!");
         }
     }    
     //if computerSelection == "Scissors"
@@ -67,15 +67,15 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
 
         //if playerSelection == "Rock"
         if (playerSelection == "Rock") {
-            console.log("You won! Lucky you!");
+            alert("You won! Lucky you!");
         }
         //if playerSelection == "paper"
         if (playerSelection == "Paper") {
-            console.log("You lost. Better luck next time :'(");
+            alert("You lost. Better luck next time :'(");
         }
         //if playerSelection == "Scissors"
         if (playerSelection == "Scissors") {
-            console.log("It's a tie! C'mon, try again!");
+            alert("It's a tie! C'mon, try again!");
         }
     }
 }
