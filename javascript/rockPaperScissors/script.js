@@ -10,7 +10,28 @@ let possibleSelections = ["rock", "paper", "scissors"];
 //Additional notes:
     //Make your function’s playerSelection parameter case-insensitive (so users can input rock, rock, rock or any other variation),Account for TIES by re-playing the round.
 
+//LET counter win = 0
+let winCounter = 0
+//LET counter lose = 0
+let loseCounter = 0
 
+//report on win lose status at the end of the match
+function report() {
+    return  console.log("win = " + winCounter),
+            console.log("lose = " + loseCounter);
+};
+
+//function INCREMENTwin counter
+function incrementWin(counter) {
+    counter = ++counter
+    return winCounter = counter, report();
+};
+
+//function INCREMENTwin counter
+function incrementLose(counter) {
+    counter = ++counter
+    return loseCounter = counter, report();
+};
 
 let startButton = document.getElementById("startGame");
 startButton.addEventListener("click", matchEvaluation);
@@ -21,14 +42,15 @@ function matchEvaluation() {
     let computerSelection = possibleSelections[Math.floor(Math.random() * possibleSelections.length)];
 
     //create random selector for players' default prompt value.
-let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleSelections.length)];
+    let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleSelections.length)];
     //declare player selection
     let playerSelection = prompt("Enter your selection", defaultPromptValue);
+    //convert it to lowercase to make it cap-agnostic in practice
     playerSelection = playerSelection.toLowerCase();
 
     //debug and control logs
-    console.log("opponent choice: " + computerSelection); //to be removed
-    console.log("your choice: " + playerSelection);       //to be removed
+    console.log("opponent choice: " + computerSelection); 
+    console.log("your choice: " + playerSelection);       
     
     //start conditional statements
     //if computerSelection == "rock"
@@ -41,10 +63,12 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
         //if playerSelection == "paper" THEN win
         else if (playerSelection == "paper") {
             console.log("You won! Lucky you!");
+            return incrementWin(winCounter);
         }
         //if playerSelection == "Scissors" THEN lose
         else if (playerSelection == "scissors") {
             console.log("You lost. Better luck next time :'(");
+            return incrementLose(loseCounter);
         }
         else {
             console.log("Invalid entry. You can chose between Rock, Paper or Scissors.");
@@ -56,6 +80,7 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
         //if playerSelection == "rock"
         if (playerSelection =="rock") {
             console.log("You lost. Better luck next time :'(");
+            return incrementLose(loseCounter);
         }
         //if playerSelection == "paper"
         else if (playerSelection == "paper") {
@@ -64,6 +89,7 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
         //if playerSelection == "Scissors"
         else if (playerSelection == "scissors") {
             console.log("You won! Lucky you!");
+            return incrementWin(winCounter);
         }
         else {
             console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
@@ -75,10 +101,12 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
         //if playerSelection == "rock"
         if (playerSelection == "rock") {
             console.log("You won! You rock!!!");
+            return incrementWin(winCounter);
         }
         //if playerSelection == "paper"
         else if (playerSelection == "paper") {
             console.log("You lost. Better luck next time :'(");
+            return incrementLose(loseCounter);
         }
         //if playerSelection == "Scissors"
         else if (playerSelection == "scissors") {
@@ -88,19 +116,5 @@ let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleS
             console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
         }
     }
-}
-
-//LET counter win = 0
-//LET counter lose = 0
-//LET result
-//function game()
-    //matchEvaluation()
-        //must add return in conditional statements.
-        //RETURN result
-    //IF win INCREMENT counter win
-    //ELSE IF lose INCREMENT counter lose
-
-//ADDEVENTLISTENER
-    //IF counter win = 5 ALERT() and RELOAD page
-    //IF counter lose = 5 ALERT() and RELOAD page
-    
+    return console.log("win = " + winCounter), console.log("lose = " + loseCounter);
+};
