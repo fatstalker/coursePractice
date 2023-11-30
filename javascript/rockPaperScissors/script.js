@@ -15,23 +15,28 @@ let winCounter = 0
 //LET counter lose = 0
 let loseCounter = 0
 
-//report on win lose status at the end of the match
-function report() {
-    return  console.log("win = " + winCounter),
-            console.log("lose = " + loseCounter);
+//Check if a score is =5 - if so => RESET - if not show scores
+function scoreStatus() {
+    if(winCounter == 5) {
+        if(alert("You won the game!!! Want to play again?")){}
+        else    window.location.reload(); 
+    }
+    else if(loseCounter == 5) {
+        if(alert("You lost the game. Want the rematch?")){}
+        else    window.location.reload();
+    }
+    else {
+        console.log("win = " + winCounter);
+        console.log("lose = " + loseCounter);
+    };
 };
 
-//function INCREMENTwin counter
-function incrementWin(counter) {
+//function INCREMENT counter
+function increment(counter) {
     counter = ++counter
-    return winCounter = counter, report();
-};
+    return counter
+}
 
-//function INCREMENTwin counter
-function incrementLose(counter) {
-    counter = ++counter
-    return loseCounter = counter, report();
-};
 
 let startButton = document.getElementById("startGame");
 startButton.addEventListener("click", matchEvaluation);
@@ -63,12 +68,16 @@ function matchEvaluation() {
         //if playerSelection == "paper" THEN win
         else if (playerSelection == "paper") {
             console.log("You won! Lucky you!");
-            return incrementWin(winCounter);
+            winCounter = increment(winCounter);
+            scoreStatus();
+            return winCounter;
         }
         //if playerSelection == "Scissors" THEN lose
         else if (playerSelection == "scissors") {
             console.log("You lost. Better luck next time :'(");
-            return incrementLose(loseCounter);
+            loseCounter = increment(loseCounter);
+            scoreStatus();
+            return loseCounter
         }
         else {
             console.log("Invalid entry. You can chose between Rock, Paper or Scissors.");
@@ -80,7 +89,9 @@ function matchEvaluation() {
         //if playerSelection == "rock"
         if (playerSelection =="rock") {
             console.log("You lost. Better luck next time :'(");
-            return incrementLose(loseCounter);
+            loseCounter = increment(loseCounter);
+            scoreStatus();
+            return loseCounter
         }
         //if playerSelection == "paper"
         else if (playerSelection == "paper") {
@@ -89,7 +100,9 @@ function matchEvaluation() {
         //if playerSelection == "Scissors"
         else if (playerSelection == "scissors") {
             console.log("You won! Lucky you!");
-            return incrementWin(winCounter);
+            winCounter = increment(winCounter);
+            scoreStatus();
+            return winCounter;
         }
         else {
             console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
@@ -101,12 +114,16 @@ function matchEvaluation() {
         //if playerSelection == "rock"
         if (playerSelection == "rock") {
             console.log("You won! You rock!!!");
-            return incrementWin(winCounter);
+            winCounter = increment(winCounter);
+            scoreStatus();
+            return winCounter;
         }
         //if playerSelection == "paper"
         else if (playerSelection == "paper") {
             console.log("You lost. Better luck next time :'(");
-            return incrementLose(loseCounter);
+            loseCounter = increment(loseCounter);
+            scoreStatus();
+            return loseCounter
         }
         //if playerSelection == "Scissors"
         else if (playerSelection == "scissors") {
@@ -116,5 +133,12 @@ function matchEvaluation() {
             console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
         }
     }
-    return console.log("win = " + winCounter), console.log("lose = " + loseCounter);
 };
+
+//FUNCTION scoreStatus
+    //IF winCounter == 5
+        //ALERT win text + RESET
+    //ELSE IF loseCounter == 5
+        //ALERT lose text + RESET
+
+//RESET  ---reload the page somehow
