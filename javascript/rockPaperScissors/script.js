@@ -26,8 +26,8 @@ function scoreStatus() {
         else    window.location.reload();
     }
     else {
-        console.log("win = " + winCounter);
-        console.log("lose = " + loseCounter);
+        alert("win = " + winCounter);
+        alert("lose = " + loseCounter);
     };
 };
 
@@ -54,8 +54,8 @@ function matchEvaluation() {
     playerSelection = playerSelection.toLowerCase();
 
     //debug and control logs
-    console.log("opponent choice: " + computerSelection); 
-    console.log("your choice: " + playerSelection);       
+    alert("opponent choice: " + computerSelection); 
+    alert("your choice: " + playerSelection);       
     
     //start conditional statements
     //if computerSelection == "rock"
@@ -63,24 +63,24 @@ function matchEvaluation() {
 
         //if playerSelection == "rock" THEN tie
         if (playerSelection == "rock") {
-            console.log("It's a tie! C'mon, try again!");
+            alert("It's a tie! C'mon, try again!");
         }
         //if playerSelection == "paper" THEN win
         else if (playerSelection == "paper") {
-            console.log("You won! Lucky you!");
+            alert("You won! Lucky you!");
             winCounter = increment(winCounter);
             scoreStatus();
             return winCounter;
         }
         //if playerSelection == "Scissors" THEN lose
         else if (playerSelection == "scissors") {
-            console.log("You lost. Better luck next time :'(");
+            alert("You lost. Better luck next time :'(");
             loseCounter = increment(loseCounter);
             scoreStatus();
             return loseCounter
         }
         else {
-            console.log("Invalid entry. You can chose between Rock, Paper or Scissors.");
+            alert("Invalid entry. You can chose between Rock, Paper or Scissors.");
         }
     }    
     //if computerSelection == "paper"
@@ -88,24 +88,24 @@ function matchEvaluation() {
 
         //if playerSelection == "rock"
         if (playerSelection =="rock") {
-            console.log("You lost. Better luck next time :'(");
+            alert("You lost. Better luck next time :'(");
             loseCounter = increment(loseCounter);
             scoreStatus();
             return loseCounter
         }
         //if playerSelection == "paper"
         else if (playerSelection == "paper") {
-            console.log("It's a tie! C'mon, try again!");
+            alert("It's a tie! C'mon, try again!");
         }
         //if playerSelection == "Scissors"
         else if (playerSelection == "scissors") {
-            console.log("You won! Lucky you!");
+            alert("You won! Lucky you!");
             winCounter = increment(winCounter);
             scoreStatus();
             return winCounter;
         }
         else {
-            console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
+            alert("Invalid entry. You can chose between Rock, Paper or Scissors.")
         }
     }    
     //if computerSelection == "Scissors"
@@ -113,24 +113,24 @@ function matchEvaluation() {
 
         //if playerSelection == "rock"
         if (playerSelection == "rock") {
-            console.log("You won! You rock!!!");
+            alert("You won! You rock!!!");
             winCounter = increment(winCounter);
             scoreStatus();
             return winCounter;
         }
         //if playerSelection == "paper"
         else if (playerSelection == "paper") {
-            console.log("You lost. Better luck next time :'(");
+            alert("You lost. Better luck next time :'(");
             loseCounter = increment(loseCounter);
             scoreStatus();
             return loseCounter
         }
         //if playerSelection == "Scissors"
         else if (playerSelection == "scissors") {
-            console.log("It's a tie! C'mon, try again!");
+            alert("It's a tie! C'mon, try again!");
         }
         else {
-            console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
+            alert("Invalid entry. You can chose between Rock, Paper or Scissors.")
         }
     }
 };
