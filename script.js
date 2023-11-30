@@ -2,14 +2,40 @@
 
 //First goal:create randomly generated rock, paper or scissors. (moved to second goal)
 //declare array of choices
-let possibleSelections = ["Rock", "Paper", "Scissors"];
+let possibleSelections = ["rock", "paper", "scissors"];
 
 
 //Second goal:function that plays a single round of the game. The function should take two parameters - the playerSelection and computerSelection
-    //and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock".
+    //and then return a string that declares the winner of the round like so: "You Lose! paper beats rock".
 //Additional notes:
-    //Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation),Account for TIES by re-playing the round.
+    //Make your function’s playerSelection parameter case-insensitive (so users can input rock, rock, rock or any other variation),Account for TIES by re-playing the round.
 
+//LET counter win = 0
+let winCounter = 0
+//LET counter lose = 0
+let loseCounter = 0
+
+//Check if a score is =5 - if so => RESET - if not show scores
+function scoreStatus() {
+    if(winCounter == 5) {
+        if(alert("You won the game!!! Want to play again?")){}
+        else    window.location.reload(); 
+    }
+    else if(loseCounter == 5) {
+        if(alert("You lost the game. Want the rematch?")){}
+        else    window.location.reload();
+    }
+    else {
+        console.log("win = " + winCounter);
+        console.log("lose = " + loseCounter);
+    };
+};
+
+//function INCREMENT counter
+function increment(counter) {
+    counter = ++counter
+    return counter
+}
 
 
 let startButton = document.getElementById("startGame");
@@ -21,61 +47,98 @@ function matchEvaluation() {
     let computerSelection = possibleSelections[Math.floor(Math.random() * possibleSelections.length)];
 
     //create random selector for players' default prompt value.
-let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleSelections.length)];
+    let defaultPromptValue = possibleSelections[Math.floor(Math.random() * possibleSelections.length)];
     //declare player selection
     let playerSelection = prompt("Enter your selection", defaultPromptValue);
+    //convert it to lowercase to make it cap-agnostic in practice
+    playerSelection = playerSelection.toLowerCase();
 
     //debug and control logs
-    alert("opponent choice: " + computerSelection); //to be removed
-    alert("your choice: " + playerSelection);       //to be removed
+    console.log("opponent choice: " + computerSelection); 
+    console.log("your choice: " + playerSelection);       
     
     //start conditional statements
-    //if computerSelection == "Rock"
-    if (computerSelection == "Rock") {
+    //if computerSelection == "rock"
+    if (computerSelection == "rock") {
 
-        //if playerSelection == "Rock" THEN tie
-        if (playerSelection == "Rock") {
-            alert("It's a tie! C'mon, try again!");
+        //if playerSelection == "rock" THEN tie
+        if (playerSelection == "rock") {
+            console.log("It's a tie! C'mon, try again!");
         }
         //if playerSelection == "paper" THEN win
-        if (playerSelection == "Paper") {
-            alert("You won! Lucky you!");
+        else if (playerSelection == "paper") {
+            console.log("You won! Lucky you!");
+            winCounter = increment(winCounter);
+            scoreStatus();
+            return winCounter;
         }
         //if playerSelection == "Scissors" THEN lose
-        if (playerSelection == "Scissors") {
-            alert("You lost. Better luck next time :'(");
+        else if (playerSelection == "scissors") {
+            console.log("You lost. Better luck next time :'(");
+            loseCounter = increment(loseCounter);
+            scoreStatus();
+            return loseCounter
+        }
+        else {
+            console.log("Invalid entry. You can chose between Rock, Paper or Scissors.");
         }
     }    
-    //if computerSelection == "Paper"
-    if (computerSelection == "Paper") {
+    //if computerSelection == "paper"
+    else if (computerSelection == "paper") {
 
-        //if playerSelection == "Rock"
-        if (playerSelection =="Rock") {
-            alert("You lost. Better luck next time :'(");
+        //if playerSelection == "rock"
+        if (playerSelection =="rock") {
+            console.log("You lost. Better luck next time :'(");
+            loseCounter = increment(loseCounter);
+            scoreStatus();
+            return loseCounter
         }
         //if playerSelection == "paper"
-        if (playerSelection == "Paper") {
-            alert("It's a tie! C'mon, try again!");
+        else if (playerSelection == "paper") {
+            console.log("It's a tie! C'mon, try again!");
         }
         //if playerSelection == "Scissors"
-        if (playerSelection == "Scissors") {
-            alert("You won! Lucky you!");
+        else if (playerSelection == "scissors") {
+            console.log("You won! Lucky you!");
+            winCounter = increment(winCounter);
+            scoreStatus();
+            return winCounter;
+        }
+        else {
+            console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
         }
     }    
     //if computerSelection == "Scissors"
-    if (computerSelection == "Scissors"){
+    else if (computerSelection == "scissors"){
 
-        //if playerSelection == "Rock"
-        if (playerSelection == "Rock") {
-            alert("You won! Lucky you!");
+        //if playerSelection == "rock"
+        if (playerSelection == "rock") {
+            console.log("You won! You rock!!!");
+            winCounter = increment(winCounter);
+            scoreStatus();
+            return winCounter;
         }
         //if playerSelection == "paper"
-        if (playerSelection == "Paper") {
-            alert("You lost. Better luck next time :'(");
+        else if (playerSelection == "paper") {
+            console.log("You lost. Better luck next time :'(");
+            loseCounter = increment(loseCounter);
+            scoreStatus();
+            return loseCounter
         }
         //if playerSelection == "Scissors"
-        if (playerSelection == "Scissors") {
-            alert("It's a tie! C'mon, try again!");
+        else if (playerSelection == "scissors") {
+            console.log("It's a tie! C'mon, try again!");
+        }
+        else {
+            console.log("Invalid entry. You can chose between Rock, Paper or Scissors.")
         }
     }
-}
+};
+
+//FUNCTION scoreStatus
+    //IF winCounter == 5
+        //ALERT win text + RESET
+    //ELSE IF loseCounter == 5
+        //ALERT lose text + RESET
+
+//RESET  ---reload the page somehow
