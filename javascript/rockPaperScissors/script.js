@@ -134,11 +134,3 @@ function matchEvaluation() {
         }
     }
 };
-
-//FUNCTION scoreStatus
-    //IF winCounter == 5
-        //ALERT win text + RESET
-    //ELSE IF loseCounter == 5
-        //ALERT lose text + RESET
-
-//RESET  ---reload the page somehow
